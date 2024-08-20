@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        /* Adjust styles as needed */
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;            
+        }
+        .navbar {
+            background-color: #343a40; /* Color for navbar */
+            position: fixed;
+            align-items: start;
+        }
+        .navbar-nav {
+            flex-direction: column;
+            padding: 10px;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-toggler {
+            outline: none;
+            padding: 5px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40; /* Dark color for footer */
+            color: #ffffff; /* Light text color for footer */
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .login-container {
+            margin-top: 250px;
+        }
+        .card-login {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+        }
+        .card-login h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-login {
+            width: 100%;
+        }
+        .forgot-password {
+            text-align: center;
+            padding-top: 10px;
+        }
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Attendance System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/login/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'login' %}" style="color: rgb(118, 240, 118);">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="card card-login">
+            <h3>Login</h3>
+            <form>
+                <div class="form-group">
+                    <label for="username">Email or Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter email or username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-login">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="create-account">
+                Don't have an account? <a href="#">Contact Adminstration</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <p>&copy; 2022 Attendance System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Adjust styles as needed */
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;            
+        }
+        .navbar {
+            background-color: #343a40; /* Color for navbar */
+            position: fixed;
+            align-items: start;
+        }
+        .navbar-nav {
+            flex-direction: column;
+            padding: 10px;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-toggler {
+            outline: none;
+            padding: 5px;
+        }
+
+        .nav-item.active a {
+            color: green; /* Change to your desired text color */
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40; /* Dark color for footer */
+            color: #ffffff; /* Light text color for footer */
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            background-color: #f8f9fa; /* Light background color for body */
+            margin: 0; /* Remove default body margin */
+        }
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .card-box {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 280px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+            background-color: white; /* Add white background to card-box */
+            max-width: 400px; /* Limit the width of the card-box */
+        }
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .role-btn {
+            margin-top: 20px;
+        }
+        .role-btn a {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .bg-image {
+            background-image: url("{% static 'attendance_system/image.png' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Attendance System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item {% if request.path == '/login/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'login' %}" style="color: rgb(118, 240, 118);">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Body -->
+    <div style="margin-top: 10px; margin-left: 20px;">
+        <h1 style="margin-top: 80px;">About Us</h1>
+        <p>The Facial Attendance System is an innovative solution that utilizes facial recognition technology to accurately track and record attendance.</p>
+
+        <p>By capturing and analyzing facial features, the system can identify individuals and automatically mark their attendance, eliminating the need for manual entry or biometric devices.</p>
+
+        <p>Facial recognition offers several advantages, including improved accuracy, convenience, and security. It eliminates the possibility of buddy punching and provides real-time monitoring of attendance data.</p>
+
+        <p>Furthermore, the Facial Attendance System can be seamlessly integrated with existing systems and databases, making it an efficient solution for various organizations and institutions.</p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <p>&copy; 2022 Attendance System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
